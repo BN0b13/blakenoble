@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/hero.css">
+  <link rel="stylesheet" href="../css/nav.css">
+  <title>Hero Fight</title>
+</head>
+<body>
+  <nav id="navbar">
+    <a href="#home" id="main-title">B J N</a>
+    <ul>
+      <li><a href="/#creations">Back</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Selector -->
+  <section id="hero-selector">
+    <div id="hero-selector-eco">
+      <h2 class="section-title">Select Your Hero</h2>
+      <div class="card" id="heroSelectCard">
+        <form>
+          <input type="text" placeholder="Enter Hero Name" id="userHeroName"><br><br>
+        </form>
+          <div id="move-group" class="btn-group">
+            <button id="warrior-select" class="btn select" value="off">Warrior</button>
+            <button id="wizard-select" class="btn select" value="off">Wizard</button>
+            <button id="ranger-select" class="btn select" value="off">Ranger</button>
+          </div>
+          <br>
+          <a href="#" class="submit-btn" id="submit-hero-selection">Create Your Hero</a>
+      </div>
+      <div class="card open-spacing">
+        <div id="hero-intro-window"></div>
+        <div id="hero-starting-stats"></div>
+      </div>
+    </div>
+  </section>
+
+  <div id="ui-grid">
+    <div id="ui-one">
+      <!-- Hero Display -->
+      <section id="hero-side" class="divide-screen">
+        <h2 class="section-title">Hero</h2>
+      
+      <div class="card" id="hero-card">
+        <div id="hero-info">
+          <h2><span id="hero-name"></span> the <span id="hero-class"></span></h2>
+          <div id="health-bar"><div id="health-prog"></div></div>
+          <h4>HP: <span id="hero-hp"></span></h4>
+          <div id="stamina-bar"><div id="stamina-prog"></div></div>
+          <h4>Stamina: <span id="hero-stamina"></span></h4>
+          <div id="mana-bar"><div id="mana-prog"></div></div>
+          <h4>Mana: <span id="hero-mana"></span></h4>
+        </div>
+        <div id="move-group" class="btn-group">
+          <button class="btn select" id="hero-attack" value="off"><span id="hero-attack-name"></span></button>
+          <button class="btn select" id="hero-defense" value="off"><span id="hero-defense-name"></span></button>
+          <button class="btn select" id="hero-special" value="off"><span id="hero-special-name"></span></button>
+        </div>
+        <div id="move-btn-spacing"><a href="#" type="submit" class="submit-btn" id="submit-move">Choose</a></div>
+      </div>
+      </section>
+    </div>
+    <div id="ui-two">
+      <!-- Special Meter Display -->
+      <section id="special-meter-display">
+        <div><div id="special-meter"><div id="special-meter-percent"></div></div></div>
+      </section>
+    </div>
+    <div id="ui-three">
+      <!-- Enemy Display -->
+      <section id="enemy-side" class="divide-screen">
+        <h2 class="section-title">Enemy</h2>
+      
+        <div class="card" id="first-enemy">
+          <div id="enemy-info">
+            <h3 id="load-enemy-type"></h3>
+            <h4>Level: <span id="enemy-level"></span></h4>
+            <div id="enemy-health-bar">
+              <div id="enemy-health-prog"></div>
+            </div>
+            <h4>HP: <span id="enemy-hp"></span></h4>
+            <h4>Attack: <span id="enemy-attack"></span></h4>
+            <h4>Special: <span id="enemy-special"></span></h4>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div id="ui-four">
+      <!-- Stat Display -->
+        <section id="hero-stat-display">
+          <div class="card open-spacing">
+            <h2>Stats</h2>
+            <div id="hero-stat-section">
+              <div id="exp-bar">
+                <div id="exp-prog"></div>
+              </div>
+              <p>EXP: <span id="hero-exp"></span></p>
+              <h4>Level: <span id="hero-level"></span></h4>
+              <h4>Strength: <span id="hero-strength"></span></h4>
+              <h4>Intelligence: <span id="hero-intelligence"></span></h4>
+              <h4>Dexterity: <span id="hero-dexterity"></span></h4>
+              <h4>Evade: <span id="hero-evade"></span></h4>
+            </div>
+            <div id="stat-interface"></div>
+          </div>
+        </section>
+    </div>
+    <div id="ui-five">
+      <!-- Narration Display -->
+        <section id="narration">
+          <div class="card open-spacing"><div id="event-title"></div><div id="event-description"></div></div>
+        </section>
+    </div>
+  </div>
+
+  
+
+    <script src="../js/hero.js"></script>
+</body>
+</html>
