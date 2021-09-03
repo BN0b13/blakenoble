@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const router = express.Router();
 const Contact = require('../models/Contact');
+const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 
 router.get('/', (req, res) => {
   const homepage = (path.join(process.cwd(), '/public/html/index.html'));
@@ -11,11 +12,6 @@ router.get('/', (req, res) => {
 router.get('/thankyou', (req, res) => {
   const thankyou = (path.join(process.cwd(), '/public/html/thankyou.html'));
   res.sendFile(thankyou);
-});
-
-router.get('/brickbreaker', (req, res) => {
-  const bb = (path.join(process.cwd(), '/public/html/bb.html'));
-  res.sendFile(bb);
 });
 
 router.get('/dogger', (req, res) => {
@@ -28,10 +24,34 @@ router.get('/calculator', (req, res) => {
   res.sendFile(cal);
 });
 
+router.get('/weather', (req, res) => {
+  const weather = (path.join(process.cwd(), '/public/html/weather.html'));
+  res.sendFile(weather);
+});
+
 router.get('/herofight', (req, res) => {
   const hero = (path.join(process.cwd(), '/public/html/hero.html'));
   res.sendFile(hero);
 });
+
+router.post('/api/weather', async (req, res) => {
+  const { lat, long } = req.body;
+  
+
+  const api = await fetch(`https://api.weather.gov/points/${lat},${long}`)
+  .then(response => response.json())
+  .then(data => {
+    const weatherAPI = fetch(data.properties.forecast)
+    .then(response => response.json())
+    .then(data => {
+      const weather = data.properties.periods;
+      const temp = data.properties.periods[0].temperature;
+      // console.log(data.properties);
+      res.send(JSON.stringify(weather));
+    });
+
+  });
+})
 
 router.post('/contact', (req, res) => {
   const { name = null, number = null, email = null, message = null } = req.body;

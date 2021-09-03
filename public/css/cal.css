@@ -10,6 +10,10 @@ body {
   background: linear-gradient(to right, rgb(68, 148, 79), #f4f4f4);
 }
 
+.nav-link-white {
+  color: white !important;
+}
+
 .calculator-grid {
   display: grid;
   justify-content: center;

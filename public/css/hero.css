@@ -11,6 +11,10 @@ body {
   background-color: #f0f0f0;
 }
 
+.nav-link-white {
+  color: white !important;
+}
+
 .section-title {
   margin: 20px auto 20px auto;
   padding: 10px;

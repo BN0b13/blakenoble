@@ -8,7 +8,11 @@ body {
     background: lightgrey;
 }
 
-.container {
+.nav-link-white {
+    color: white !important;
+  }
+
+.doggerContainer {
     display: flex;
     justify-content: center;
     height: 90vh;
