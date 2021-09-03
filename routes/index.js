@@ -36,6 +36,7 @@ router.get('/herofight', (req, res) => {
 
 router.post('/api/weather', async (req, res) => {
   const { lat, long } = req.body;
+  console.log('Hit Weather API');
   
 
   const api = await fetch(`https://api.weather.gov/points/${lat},${long}`)
@@ -46,7 +47,6 @@ router.post('/api/weather', async (req, res) => {
     .then(data => {
       const weather = data.properties.periods;
       const temp = data.properties.periods[0].temperature;
-      // console.log(data.properties);
       res.send(JSON.stringify(weather));
     });
 
@@ -54,20 +54,25 @@ router.post('/api/weather', async (req, res) => {
 })
 
 router.post('/contact', (req, res) => {
-  const { name = null, number = null, email = null, message = null } = req.body;
+  const { name = null, number = null, email = null, message = null, remainEmpty = null } = req.body;
 
-  const post = new Contact({
-    name: name,
-    number: number,
-    email: email,
-    message: message
-  });
-  try {
-    post.save();
-    res.redirect(`/thankyou`);
-  } catch(err) {
-    res.send('There was an error' + err);
-  };
+  if(remainEmpty.length >= 1) {
+    return res.sendStatus(403);
+  }
+  if(remainEmpty.length <= 0) {
+    const post = new Contact({
+      name: name,
+      number: number,
+      email: email,
+      message: message
+    });
+    try {
+      post.save();
+      res.sendStatus(200);
+    } catch(err) {
+      res.send('There was an error' + err);
+    };
+  }
 });
 
 

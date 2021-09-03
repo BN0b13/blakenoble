@@ -24,7 +24,7 @@ navigator.geolocation.getCurrentPosition(function(position) {
 weatherSubmit.addEventListener('click', function getWeather() {
 
   if(lat && long !== null) {
-    console.log('Sent');
+    console.log(`Let's Check That Weather!`);
     loadState();
 
     const sendAddress = fetch('/api/weather', {
