@@ -6,7 +6,7 @@ var frog = new Image(); frog.src = "../img/dogger.png";
 // var sy = 0;
 // var swidth = 40;
 // var sheight = 40;
-var x = 50;
+var x = 290;
 var y = 444;
 var width = 30;
 var height = 30;
@@ -145,6 +145,46 @@ ctx.fillRect(0, 0, 570, 220);
 
 function drawFrog() {
     ctx.drawImage(frog, x, y, width, height);
+}
+
+// adding mobile ability
+canvas.ontouchstart = mobileStart;
+
+function mobileStart(e) {
+    let touchX = e.targetTouches[0].pageX;
+    let touchY = e.targetTouches[0].pageY;
+
+    // UP
+    if  (touchY - 102 < y) {
+        y = y - 44;
+        }
+    // DOWN
+    if  (touchY - 102 > y && y + height < canvas.height - 80) {
+        y = y + 44;
+        }
+    // RIGHT
+    if  (touchX > x && x + width < canvas.width - 20) {
+        x = x + 44;
+        }
+    // LEFT
+    if (touchX < x && left==true && x > 20) {
+        x = x - 44;
+        }
+}
+
+function mobileMove(e) {
+    // console.log(e);
+    // console.log('registerd move');
+}
+
+function mobileEnd(e) {
+    // console.log(e);
+    // console.log('registerd end');
+}
+
+function mobileCancel(e) {
+    // console.log(e);
+    // console.log('registerd cancel');
 }
 
 function moveFrog() {

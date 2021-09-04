@@ -1,3 +1,9 @@
+@media only screen and (max-width: 600px) {
+  #doggerNav {
+    width: 100%;
+  }
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -12,12 +18,12 @@ body {
     color: white !important;
   }
 
-.doggerContainer {
+/* .doggerContainer {
     display: flex;
     justify-content: center;
     height: 90vh;
     width: auto;
-}
+} */
 
 canvas {
     background: #000;
