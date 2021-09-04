@@ -13,3 +13,12 @@ input[type=number] {
 .nav-link-white {
   color: white !important;
 }
+
+.textBlack {
+  color: #000;
+}
+
+.textBlack:hover {
+  color: #fff;
+  background-color: #0B6EFD;
+}

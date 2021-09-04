@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="../css/weather.css">
-  <title>Weather</title>
+  <title>The Weather Checker</title>
 </head>
 <body class="text-center">
   <nav class="navbar bg-dark mb-2">
@@ -22,21 +22,35 @@
     </ul>
   </nav>
   
-  <div class="container m-5">
-    <h1 class="mt-5 p-3">The Weather Checker</h1>
-
-  <div id="loadingLocation" class="m-5">
-    <p>Please Wait...</p>
-    <div class="spinner-border" role="status">
-      <span class="visually-hidden">Loading...</span>
+  <div class="container">
+    <img src="../img/weatherCheckerIcon.png" alt="Weather Checker Icon" width="200" height ="200">
+    <div id="loadingLocation" class="my-5">
+      <p>Please Wait...</p>
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+    
+    <div>
+      <button type="button" id="weatherSubmit" class="btn btn-primary my-5" style="display: none">Check Your Weather</button>
     </div>
   </div>
-  
-  <div>
-    <button type="button" id="weatherSubmit" class="btn btn-primary m-5" style="display: none">Let's Check!</button>
-  </div>
 
-  <div id="myWeather"></div>
+  <div id="weatherDisplay" class="container" style="display: none;">
+    <ul class="nav nav-tabs mx-auto">
+      <li class="nav-item">
+        <button id="navTodayBtn" class="nav-link textBlack active" aria-current="page">Today's Forecast</button>
+      </li>
+      <li class="nav-item">
+        <button id="navTomorrowBtn" class="nav-link textBlack">Tomorrow's Forecast</button>
+      </li>
+      <li class="nav-item">
+        <button id="navSevenBtn" class="nav-link textBlack">Seven Day Forecast</button>
+      </li>
+    </ul>
+    <div class="border border-top-0 p-3">
+      <div id="myWeather"></div>
+    </div>
   </div>
   
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

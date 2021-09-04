@@ -36,9 +36,7 @@ router.get('/herofight', (req, res) => {
 
 router.post('/api/weather', async (req, res) => {
   const { lat, long } = req.body;
-  console.log('Hit Weather API');
   
-
   const api = await fetch(`https://api.weather.gov/points/${lat},${long}`)
   .then(response => response.json())
   .then(data => {
@@ -46,7 +44,6 @@ router.post('/api/weather', async (req, res) => {
     .then(response => response.json())
     .then(data => {
       const weather = data.properties.periods;
-      const temp = data.properties.periods[0].temperature;
       res.send(JSON.stringify(weather));
     });
 
