@@ -53,6 +53,10 @@ li, a {
   color: white !important;
 }
 
+.card-title {
+  font-weight: bold;
+}
+
 .containerCreation {
   height: auto;
 }
@@ -61,6 +65,8 @@ li, a {
   max-height: 220px;
   height: auto;
   width: auto;
+  border: #000 solid 1px;
+  border-radius: 5px;
 }
 
 .viewH {
