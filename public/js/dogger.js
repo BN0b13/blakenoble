@@ -320,8 +320,6 @@ function drawCars(){
   for (i = 0; i < carsLX.length; i++) {
       ctx.drawImage(carLeft, carsLX[i], carsLY[i], carWidth, carHeight);
   }
-
-  
 }
 
 function moveCars() {
@@ -459,64 +457,64 @@ if (rockX8 > 0-rockWidth) {
 }
 
 function float() {
-  if (rockX1 <= dog.x + dog.w &&
-    rockX1 + rockWidth >= dog.x &&
+  if (rockX1 <= dog.x + (dog.w/2) &&
+    rockX1 + rockWidth >= dog.x + (dog.w/2) &&
     rockY1 + rockHeight >= dog.y &&
     rockY1 <= dog.y + dog.h) {
     if(dog.x < canvas.width - dog.w){
       dog.x = dog.x + speed.verySlow;
     }
   }
-  else if (rockX2 <= dog.x + dog.w &&
-    rockX2 + rockWidth >= dog.x &&
+  else if (rockX2 <= dog.x + (dog.w/2) &&
+    rockX2 + rockWidth >= dog.x + (dog.w/2) &&
     rockY2 + rockHeight >= dog.y &&
     rockY2 <= dog.y + dog.h) {
     if(dog.x < canvas.width - dog.w){
       dog.x = dog.x + speed.verySlow;
     }
   }
-  else if (rockX3 <= dog.x + dog.w &&
-    rockX3 + rockWidth >= dog.x &&
+  else if (rockX3 <= dog.x + (dog.w/2) &&
+    rockX3 + rockWidth >= dog.x + (dog.w/2) &&
     rockY3 + rockHeight >= dog.y &&
     rockY3 <= dog.y + dog.h) {
     if(dog.x > 0){
       dog.x = dog.x - speed.verySlow;
     }
   }
-  else if (rockX4 <= dog.x + dog.w &&
-      rockX4 + rockWidth >= dog.x &&
+  else if (rockX4 <= dog.x + (dog.w/2) &&
+      rockX4 + rockWidth >= dog.x + (dog.w/2) &&
       rockY4 + rockHeight >= dog.y &&
       rockY4 <= dog.y + dog.h) {
     if(dog.x > 0){
       dog.x = dog.x - speed.verySlow;
     }
   }
-  else if (rockX5 <= dog.x + dog.w &&
-      rockX5 + rockWidth >= dog.x &&
+  else if (rockX5 <= dog.x + (dog.w/2) &&
+      rockX5 + rockWidth >= dog.x + (dog.w/2) &&
       rockY5 + rockHeight >= dog.y &&
       rockY5 <= dog.y + dog.h) {
     if(dog.x < canvas.width - dog.w){
       dog.x = dog.x + speed.slow;
     }
   }
-  else if (rockX6 <= dog.x + dog.w &&
-      rockX6 + rockWidth >= dog.x &&
+  else if (rockX6 <= dog.x + (dog.w/2) &&
+      rockX6 + rockWidth >= dog.x + (dog.w/2) &&
       rockY6 + rockHeight >= dog.y &&
       rockY6 <= dog.y + dog.h) {
     if(dog.x < canvas.width - dog.w){
       dog.x = dog.x + speed.slow;
     }
   }
-  else if (rockX7 <= dog.x + dog.w &&
-      rockX7 + rockWidth >= dog.x &&
+  else if (rockX7 <= dog.x + (dog.w/2) &&
+      rockX7 + rockWidth >= dog.x + (dog.w/2) &&
       rockY7 + rockHeight >= dog.y &&
       rockY7 <= dog.y + dog.h) {
     if(dog.x > 0){
       dog.x = dog.x - speed.medium;
     }
   }
-  else if (rockX8 <= dog.x + dog.w &&
-      rockX8 + rockWidth >= dog.x &&
+  else if (rockX8 <= dog.x + (dog.w/2)&&
+      rockX8 + rockWidth >= dog.x + (dog.w/2) &&
       rockY8 + rockHeight >= dog.y &&
       rockY8 <= dog.y + dog.h) {
     if(dog.x > 0){
@@ -524,7 +522,7 @@ function float() {
     }
   }
 
-  else if (dog.y < tileY*5 && dog.y > tileY){
+  else if (dog.y < tileY*5 && dog.y > tileY || dog.y < tileY*5 && dog.x < 0){
     dog.lives --;
     backToStart();
   }
@@ -655,6 +653,12 @@ function newGame() {
   play = true;
   victoryCondition = false;
   dog.lives = 5;
+  pad1 = false;
+  pad2 = false;
+  pad3 = false;
+  pad4 = false;
+  pad5 = false;
+  pad6 = false;
 }
 
 function draw() {

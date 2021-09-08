@@ -174,24 +174,28 @@ function secondView(data) {
 }
 
 function thirdView(data) {
+  let wind = ``;
 
   let sevenWeather = '';
   data.forEach((result) => {
+    if(document.documentElement.clientWidth > 700) {
+      wind = `<p id="sevenDayWind">${result.windSpeed} ${result.windDirection}</p>`
+    }
     sevenWeather += `
     <div class="container my-2">
       <div class="card">
         <div class="container">
           <div class="row">
-            <div class="col-8 my-auto">
-              <h4 class="my-auto">${result.name}</h4>
-              <p class="my-auto">${result.shortForecast}</p>
+            <div class="col-6 my-auto">
+              <h4 class="my-auto py-1">${result.name}</h4>
+              <p class="my-auto py-1">${result.shortForecast}</p>
             </div>
-            <div class="col-2 my-auto">
+            <div class="col-3 my-auto">
               <img src="${result.icon}" alt="Weather Icon" width="50" height="50">
             </div>
-            <div class="col-2 my-auto">
-              <h5 class="my-2">${result.temperature}&#176 ${result.temperatureUnit}</h5>
-              <p>${result.windSpeed} ${result.windDirection}</p>
+            <div class="col-3 my-auto">
+              <h6 class="my-2">${result.temperature}&#176 ${result.temperatureUnit}</h6>
+              ${wind}
             </div>
             
           </div>
@@ -206,7 +210,11 @@ function thirdView(data) {
 function showView() {
   loadingDisplay.style.display = 'none';
   weatherDisplay.style.display = 'block';
-
+  if(document.documentElement.clientWidth < 700) {
+    navTodayBtn.textContent = 'Today';
+    navTomorrowBtn.textContent = 'Tomorrow';
+    navSevenBtn.textContent = 'One Week';
+  }
   if(todayForecast == true) {
     firstView(result);
   }
