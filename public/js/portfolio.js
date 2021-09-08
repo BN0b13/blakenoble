@@ -5,8 +5,26 @@ const message = document.getElementById('message');
 const remainEmpty = document.getElementById('remainEmpty');
 const contactSubmit = document.getElementById('contactSubmit');
 const errorDiv = document.getElementById('errorDiv');
+const typeDiv = document.getElementById('typeDiv');
+const cursorDiv = document.getElementById('cursorDiv');
+const creationOnePicture = document.getElementById('creationOnePicture');
+const creationTwoPicture = document.getElementById('creationTwoPicture');
+const creationThreePicture = document.getElementById('creationThreePicture');
+const creationFourPicture = document.getElementById('creationFourPicture');
+const creationFivePicture = document.getElementById('creationFivePicture');
+const aboutPictureCol = document.getElementById('aboutPictureCol');
 
+let cursor = true;
 let botCounter = 0;
+
+if(document.documentElement.clientWidth < 700) {
+  creationOnePicture.className = 'row';
+  creationTwoPicture.className = 'row';
+  creationThreePicture.className = 'row';
+  creationFourPicture.className = 'row';
+  creationFivePicture.className = 'row';
+  aboutPictureCol.className = 'row';
+}
 
 contactSubmit.addEventListener('click', function(e) {
   e.preventDefault();
@@ -64,3 +82,42 @@ function botStopper() {
 function errorMessage(place, msg) {
   place.innerHTML = `<div class="alert alert-danger" role="alert">${msg}</div>`;
 }
+
+
+
+function typewriter(sentence) {
+  let myArr = [];
+  let sentenceHolder = '';
+
+  setInterval(function() {
+    cursorDiv.style.opacity = 0;
+    cursor = false;
+  }, 500);
+
+  setInterval(()=>{
+    if(!cursor) {
+      cursorDiv.style.opacity = 1;
+      cursor = true;
+    }
+  }, 1000);
+
+  for(i=0; i<sentence.length; i++) {
+    myArr.push(sentence.charAt(i));
+
+  }
+  setTimeout(()=> {
+    for(j=0; j<myArr.length; j++) {
+      let timeToStartWriting = 90*j;
+      let count = j;
+      setTimeout(function(){ 
+        sentenceHolder+=myArr[count];
+        // console.log(myArr);
+        typeDiv.innerHTML = `
+          ${sentenceHolder}
+        `;
+      }, timeToStartWriting);
+    }
+  }, 2000);
+}
+
+typewriter('Brick By Brick We Will Build It Together');

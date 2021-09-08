@@ -38,10 +38,10 @@ class Warrior extends Hero {
     this.defense = 24;
     this.evade = 10;
     this.hp = 135;
-    this.stamina = 1130;
+    this.stamina = 130;
     this.mana = 30;
     this.hpMax = 135;
-    this.staminaMax = 1130;
+    this.staminaMax = 130;
     this.manaMax = 30;
   }
 }
@@ -275,10 +275,14 @@ function heroSelectSubmit() {
 function fightScreenDisplay() {
   heroSelectorCard.style.display = 'none';
   heroSide.style.display = 'block';
-  specialMeterDisplay.display = 'block';
+  // specialMeterDisplay.display = 'block';
   enemySide.style.display = 'block';
-  heroStatDisplay.style.display = 'block';
   narrationCard.style.display = 'block';
+  if(document.documentElement.clientWidth > 700) {
+    heroStatDisplay.style.display = 'block';
+    selectStatDisplay.style.display = 'none';
+    selectHeroDisplay.style.display = 'none';
+  }
 }
 
 function displayBirdsEye() {
@@ -289,6 +293,18 @@ function displayBirdsEye() {
   enemySide.style.display = 'none';
   heroStatDisplay.style.display = 'none';
   narrationCard.style.display = 'none';
+}
+
+function toggleHeroScreen() {
+  if(curHeroDisplay) {
+    heroCard.style.display = 'none';
+    heroStatDisplay.style.display = 'flex';
+    curHeroDisplay = false;
+  } else {
+    heroCard.style.display = 'flex';
+    heroStatDisplay.style.display = 'none';
+    curHeroDisplay = true;
+  }
 }
 
 // Hero DOM Vars
@@ -324,6 +340,9 @@ let baseMana;
 // Special Meter
 const specialMeterDisplay = document.getElementById('special-meter-display');
 // Hero Stat Display
+let curHeroDisplay = true;
+const selectStatDisplay = document.querySelector('.selectStatDisplay');
+const selectHeroDisplay = document.querySelector('.selectHeroDisplay');
 const heroStatDisplay = document.getElementById('hero-stat-display');
 const moveStatDisplay = document.getElementById('stat-interface');
 // Event Description
@@ -339,6 +358,8 @@ let submitMoveOnOff = 'off';
 heroAttack.addEventListener('click', attackOn);
 heroDefend.addEventListener('click', defendOn);
 heroSpecial.addEventListener('click', specialOn);
+selectStatDisplay.addEventListener('click', toggleHeroScreen);
+selectHeroDisplay.addEventListener('click', toggleHeroScreen);
 submitMove.addEventListener('click', heroTypeMoveSelector);
 
 function attackOn() {
@@ -947,4 +968,3 @@ function endEnemyTurn() {
   basicEnemy.turn = 0;
   setTimeout(turns, 3000);
 }
-

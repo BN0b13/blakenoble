@@ -2,7 +2,7 @@
 
 @media only screen and (max-width: 340px) {
   .small-screen {
-    font-size: .9rem;
+    font-size: .8rem;
   }
 
   #mainImg {
@@ -11,11 +11,23 @@
 }
 
 @media only screen and (max-width: 600px) and (min-width: 341px) {
+  p {
+    font-size: .9rem;
+  }
+
   #mainImgContainer {
     padding: 0 !important;
   }
   #mainImg {
     width: 280px !important;
+  }
+
+  #aboutImg {
+    height: 25vh;
+  }
+
+  #createBtnDiv {
+    height: 20px !important;
   }
 
   #contact .contact-form input,
