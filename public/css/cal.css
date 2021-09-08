@@ -1,3 +1,10 @@
+@media only screen and (max-width: 550px) {
+  .calculator-grid {
+    grid-template-columns: repeat(4, 75px) !important;
+    grid-template-rows: minmax(80px, auto) repeat(5, 75px) !important;
+  }
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
@@ -18,7 +25,6 @@ body {
   display: grid;
   justify-content: center;
   align-content: center;
-  min-height: 100vh;
   grid-template-columns: repeat(4, 100px);
   grid-template-rows: minmax(120px, auto) repeat(5, 100px);
 }

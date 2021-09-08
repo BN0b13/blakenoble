@@ -1,8 +1,21 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 340px) {
+  .small-screen {
+    font-size: .9rem;
+  }
+
   #mainImg {
-    width: 300px !important;
+    width: 220px !important;
+  }
+}
+
+@media only screen and (max-width: 600px) and (min-width: 341px) {
+  #mainImgContainer {
+    padding: 0 !important;
+  }
+  #mainImg {
+    width: 280px !important;
   }
 
   #contact .contact-form input,
@@ -39,7 +52,6 @@ input[type=number] {
 
 body {
   font-family: 'Roboto', sans-serif, arial;
-  font-size: 1.2rem;
   line-height: 1.4;
   text-align: center;
 }
