@@ -30,6 +30,10 @@
     height: 20px !important;
   }
 
+  #contactContainer {
+    padding-top: .5rem !important;
+  }
+
   #contact .contact-form input,
   #contact .contact-form textarea {
     padding: 0.2rem;
@@ -143,6 +147,12 @@ li, a {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+#contactContainer {
+  min-height: 80vh;
+  padding: auto;
+  max-width: 500px;
 }
 
 #contact .contact-form {
