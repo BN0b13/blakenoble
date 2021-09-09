@@ -210,7 +210,7 @@ function thirdView(data) {
 function showView() {
   loadingDisplay.style.display = 'none';
   weatherDisplay.style.display = 'block';
-  if(document.documentElement.clientWidth < 700) {
+  if(document.documentElement.clientWidth < 770) {
     navTodayBtn.textContent = 'Today';
     navTomorrowBtn.textContent = 'Tomorrow';
     navSevenBtn.textContent = 'One Week';

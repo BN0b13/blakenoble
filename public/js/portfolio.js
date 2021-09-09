@@ -99,7 +99,7 @@ function typewriter(sentence) {
       cursorDiv.style.opacity = 1;
       cursor = true;
     }
-  }, 1000);
+  }, 1001);
 
   for(i=0; i<sentence.length; i++) {
     myArr.push(sentence.charAt(i));
