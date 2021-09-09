@@ -18,12 +18,12 @@ let cursor = true;
 let botCounter = 0;
 
 if(document.documentElement.clientWidth < 700) {
-  creationOnePicture.className = 'row';
-  creationTwoPicture.className = 'row';
-  creationThreePicture.className = 'row';
-  creationFourPicture.className = 'row';
-  creationFivePicture.className = 'row';
-  aboutPictureCol.className = 'row';
+  creationOnePicture.className = 'container';
+  creationTwoPicture.className = 'container';
+  creationThreePicture.className = 'container';
+  creationFourPicture.className = 'container';
+  creationFivePicture.className = 'container';
+  aboutPictureCol.className = 'container';
 }
 
 contactSubmit.addEventListener('click', function(e) {
